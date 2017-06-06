@@ -43,7 +43,7 @@ type PartitionInfoCollector struct {
 // NewPartitionInfoCollector returns a prometheus.Collector that queries Kafka
 // using client. concurrency sets an upper limit on the number concurrent Kafka
 // concumer group queries running.
-func NewPartitionInfoCollector(client exporter.ConsumerGroupInfoClient, ctx context.Context, execTimeout time.Duration, maxConcurrentQueries int) *PartitionInfoCollector {
+func NewPartitionInfoCollector(ctx context.Context, client exporter.ConsumerGroupInfoClient, execTimeout time.Duration, maxConcurrentQueries int) *PartitionInfoCollector {
 	if maxConcurrentQueries <= 0 {
 		log.Fatal("maxConcurrentQueries must be positive.")
 	}
