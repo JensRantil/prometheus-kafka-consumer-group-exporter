@@ -102,7 +102,7 @@ func (p *PartitionInfoCollector) Collect(c chan<- prometheus.Metric) {
 			partitions, err := p.client.DescribeGroup(ctx, groupname)
 			cancel()
 			if err != nil {
-				log.Error("Could not describe group '%s': %s", groupname, err)
+				log.Errorf("Could not describe group '%s': %s", groupname, err)
 				p.groupDescribeErrors.WithLabelValues(groupname).Inc()
 				continue
 			}
