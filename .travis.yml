@@ -1,2 +1,6 @@
 language: go
+
+before_script:
+  - ./check_gofmt.sh
+
 script: go test -v -race ./...
